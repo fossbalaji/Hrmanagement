@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @assign.member %>
+</p>
+
+<p>
+  <strong>Teamname:</strong>
+  <%= @assign.teamname %>
+</p>
+
+<%= link_to 'Edit', edit_assign_path(@assign) %> |
+<%= link_to 'Back', assigns_path %>

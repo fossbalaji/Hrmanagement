@@ -1,0 +1,25 @@
+<%= form_for(@assign) do |f| %>
+  <% if @assign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assign.errors.count, "error") %> prohibited this assign from being saved:</h2>
+
+      <ul>
+      <% @assign.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :member %><br>
+    <%= collection_select(:user, :user_id , User.all, :id, :name, options ={:prompt => "-Select a user"}, :class =>"user") %>
+  </div>
+  <div class="field">
+    <%= f.label :teamname %><br>
+    <%= collection_select(:team, :team_id , Team.all, :id, :name, options ={:prompt => "-Select a team"}, :class =>"team") %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
